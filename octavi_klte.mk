@@ -1,5 +1,7 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2014-2016 The CyanogenMod Project
+# Copyright (C) 2017-2018 The LineageOS Project
+# Copyright (C) 2020-2021 The OctaviOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,17 +14,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_klte.mk \
-    $(LOCAL_DIR)/octavi_klte.mk
+# Inherit some common OctaviOS stuff.
+$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 
-COMMON_LUNCH_CHOICES := \
-    lineage_klte-user \
-    lineage_klte-userdebug \
-    lineage_klte-eng
+$(call inherit-product, device/samsung/klte/full_klte.mk)
 
-COMMON_LUNCH_CHOICES := \
-    octavi_klte-user \
-    octavi_klte-userdebug \
-    octavi_klte-eng
+PRODUCT_DEVICE := klte
+PRODUCT_NAME := octavi_klte
